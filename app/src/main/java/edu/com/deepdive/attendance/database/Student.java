@@ -49,7 +49,7 @@ public class Student {
     return lastName;
   }
 
-  public void setLastname(@NonNull String lastname) {
+  public void setLastName(@NonNull String lastname) {
     this.lastName = lastname;
   }
 
@@ -78,5 +78,39 @@ public class Student {
   public void setPhonenumber(String phonenumber) {
     this.phonenumber = phonenumber;
   }
+
+  @Entity(
+      tableName = "absences",
+      indices = {
+          @Index(value = {"start,"end"}),
+          @Index(value = {"student_id", "start, end"},
+          @Index(value = {"student_id", "start"}, unique = true),
+
+
+      public class Absence {
+
+      @PrimaryKey(autoGenerate = true)
+      @ColumnInfo(name = "absence_id")
+      private long id;
+
+
+      @ColumnInfo(name = "student_id")
+      private long studentid;
+
+      @NonNull
+      private Date start = new Date();
+      private Date end;
+
+      private boolean excused;
+
+
+
+
+  }
+
+
+}
+
+
 
 }
